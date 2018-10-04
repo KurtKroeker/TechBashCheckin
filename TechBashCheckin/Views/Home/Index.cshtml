@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    div.personLocation {
+        margin-bottom: 5px;
+        background-color: aliceblue;
+        padding: 5px;
+    }
+
+    button.selected {
+        background-color: darkblue;
+        color: white;
+    }
+</style>
+
+<div class="row">
+    <h2>EnergyCAP TechBash Attendees &amp; Locations</h2>
+    <div id="attendees">
+        @foreach (var personLocation in ((CheckinViewModel)this.Model).PersonLocations)
+        {
+            <div id="@personLocation.Person.ID" class="personLocation">
+                <span>@personLocation.Person.FullName is located at</span>
+                @foreach (string location in this.Model.Locations)
+                {
+                    bool isSelected = (personLocation.Location == location);
+                    string selectedClass = (isSelected) ? "selected" : "";
+
+                    string buttonID = $"btn{personLocation.Person.ID }_{location.ToLower().Replace(" ", "")}";
+                    <button id="@buttonID" class="@selectedClass" onclick="changeLocation(this, '@personLocation.Person.ID', '@location')">@location</button>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function changeLocation(button, personID, location) {
+        var personDiv = document.getElementById(personID);
+        $(personDiv).children("button").removeClass("selected");
+
+        document.getElementById(button.id).classList = "selected";
+    }
+</script>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechBashCheckin", "TechBashCheckin\TechBashCheckin.csproj", "{75A5EFD4-5A96-43BB-9145-7D199B08481F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75A5EFD4-5A96-43BB-9145-7D199B08481F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A5EFD4-5A96-43BB-9145-7D199B08481F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A5EFD4-5A96-43BB-9145-7D199B08481F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A5EFD4-5A96-43BB-9145-7D199B08481F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EBABA27-E22F-42DE-9531-B9B0F27B0026}
+	EndGlobalSection
+EndGlobal
