@@ -5,30 +5,43 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechBashCheckin.Models;
+using TechBashCheckin.Storage;
 
 namespace TechBashCheckin.Controllers
 {
     public class HomeController : Controller
     {
-        private List<string> _ecapPeople = new List<string> {
-            "Kurt Kroeker",
-            "Vance Hensler",
-            "David Ulmer",
-            "Chris Houdeshell"
-        };
+        private CheckinViewModel _vm;
+
+        public HomeController()
+        {
+        }
 
         public IActionResult Index()
         {
-            var foo = new CheckinViewModel {
-                PersonLocations = new List<PersonLocation> {
-                    new PersonLocation { Person = new Person { FullName = "Kurt Kroeker" }, Location = "Other" },
-                    new PersonLocation { Person = new Person { FullName = "Vance Hensler" }, Location = "Other" },
-                    new PersonLocation { Person = new Person { FullName = "David Ulmer" }, Location = "Other" },
-                    new PersonLocation { Person = new Person { FullName = "Chris Houdeshell" }, Location = "Other" }
-                }
+            _vm = new CheckinViewModel {
+                Locations = CheckinStorage.Instance.Locations,
+                PersonLocations = CheckinStorage.Instance.PersonLocations
             };
+            return View(_vm);
+        }
 
-            return View(foo);
+        public bool UpdateLocation(int id, string location)
+        {
+            try
+            {
+                var personLocation = CheckinStorage.Instance.PersonLocations.FirstOrDefault(pl => pl.Person.ID == id);
+                if (personLocation != null)
+                {
+                    personLocation.Location = location;
+                    return true;
+                }
+            }
+            catch (Exception ex) {
+                return false;
+            }
+
+            return false;
         }
 
         public IActionResult About()

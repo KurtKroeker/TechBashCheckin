@@ -14,15 +14,7 @@ namespace TechBashCheckin.Models
         public CheckinViewModel()
         {
             PersonLocations = new List<PersonLocation>();
-
-            Locations = new List<string> {
-                "Salon E",
-                "Ironwood",
-                "Rosewood",
-                "River Rooms",
-                "Water Park",
-                "Other"
-            };
+            Locations = new List<string>();
         }
     }
 
@@ -39,8 +31,6 @@ namespace TechBashCheckin.Models
 
         public Person()
         {
-            var rand = new Random();
-            ID = rand.Next(1000, 9999);
         }
     }
 }

@@ -41,5 +41,8 @@
         $(personDiv).children("button").removeClass("selected");
 
         document.getElementById(button.id).classList = "selected";
+
+        // update the data in storage
+        $.get("/Home/UpdateLocation?id=" + personID + "&location=" + location);
     }
 </script>
